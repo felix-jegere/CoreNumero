@@ -4,13 +4,16 @@
   "description": "An advanced numerology web application that blends ancient Pythagorean calculations with modern Gemini AI to provide deep insights into your life path, destiny, and personality.",
   "license": "ISC",
   "author": "Jegere Felix",
-  "type": "commonjs",
+  "type": "module",
   "main": "index.js",
   "scripts": {
+    "start": "node ./backend/src/index.js",
+    "dev": "nodemon ./backend/src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "@google/genai": "^1.42.0",
+    "cors": "^2.8.5",
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
     "nodemon": "^3.1.14"
