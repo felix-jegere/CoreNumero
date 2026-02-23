@@ -12,7 +12,7 @@ async function testConnection() {
   try {
     console.log('Testing Gemini API connection...');
     const response = await ai.models.generateContent({
-      model: "gemini-2.0-flash",
+      model: "gemini-3-flash-preview",
       contents: "Say 'CoreNumero is ready!' in one sentence.",
       config: {
         temperature: 0.1,

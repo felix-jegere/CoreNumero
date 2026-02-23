@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname, '../../frontend')));
 app.use('/api', responseRoutes);
 
 // Serve index.html for all routes (SPA fallback)
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../../frontend/index.html'));
 });
 

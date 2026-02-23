@@ -9,7 +9,8 @@
   "scripts": {
     "start": "node ./backend/src/index.js",
     "dev": "nodemon ./backend/src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve-frontend": "node ./backend/frontend-server.js",
+    "test": "node --test"
   },
   "dependencies": {
     "@google/genai": "^1.42.0",
