@@ -3,15 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="An advanced numerology web application that blends ancient Pythagorean calculations with modern Gemini AI to provide deep insights into your life path, destiny, and personality.">
-    <title>Numero AI</title>
-    <style></style>
-    
+    <title>CoreNumero | AI-Powered Numerology</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div>
-        <h1>Welcome to Numero AI</h1>
-        <p>Discover the power of numerology combined with cutting-edge AI technology. Enter your details to unlock insights about your life path, destiny, and personality.</p> 
-    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">CORE<span>NUMERO</span></div>
+        <ul class="nav-links">
+            <li><a href="#about">Philosophy</a></li>
+            <li><a href="#calculate">Calculate</a></li>
+            <li><a href="#ai">Gemini Insights</a></li>
+        </ul>
+        <button class="btn-primary-sm">Get Started</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="fade-in">The Universe is <br><span class="gradient-text">Written in Numbers.</span></h1>
+            <p class="hero-description">An advanced numerology web application that blends ancient Pythagorean calculations with modern Gemini AI to provide deep insights into your life path, destiny, and personality.</p>
+            <div class="cta-group">
+                <a href="#calculate" class="btn-primary">Reveal Your Path</a>
+                <a href="#ai" class="btn-secondary">Explore the AI</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="circle-animation"></div>
+        </div>
+    </header>
+
+    <!-- Calculator Section -->
+    <section id="calculate" class="calculator-section">
+        <div class="glass-card">
+            <h2>Calculate Your Core</h2>
+            <p>Enter your details to generate your Pythagorean profile.</p>
+            <form id="numerologyForm" class="num-form">
+                <div class="input-group">
+                    <label>Full Birth Name</label>
+                    <input type="text" id="userName" placeholder="John Doe" required>
+                </div>
+                <div class="input-group">
+                    <label>Birth Date</label>
+                    <input type="date" id="userDate" required>
+                </div>
+                <button type="submit" class="btn-submit">Analyze Vibrations</button>
+            </form>
+            <div id="results" class="results-area hidden">
+                <h3>Your Life Path Number: <span id="lifePathDigit">?</span></h3>
+                <p id="geminiSummary">Waiting for AI synthesis...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="feature-card">
+            <div class="icon">01</div>
+            <h3>Pythagorean Precision</h3>
+            <p>Mathematical accuracy based on the traditional Western numerology system.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">02</div>
+            <h3>Gemini AI Synthesis</h3>
+            <p>Advanced language models interpret your numbers for personalized context.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">03</div>
+            <h3>Future Trajectory</h3>
+            <p>Projected cycles based on your personal year and universal vibrations.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 CoreNumero. Powered by Google Gemini AI.</p>
+            <div class="social-links">
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+                <a href="#">Privacy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

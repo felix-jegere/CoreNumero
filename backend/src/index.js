@@ -3,7 +3,7 @@ import testConnection from './config/ai_model.js';
 import app from './app.js';
 
 dotenv.config({
-    path: './.env'
+    path: '.env'
 })
 
 const startServer = async ()=>{
@@ -21,8 +21,6 @@ const startServer = async ()=>{
         const backendPort = process.env.PORT || 8000;
         app.listen(backendPort, () => {
             console.log(`\n✓ Server is running on http://localhost:${backendPort}`);
-            console.log('✓ Frontend available at http://localhost:3000');
-            console.log('✓ API available at http://localhost:3000/api\n');
         });
     }catch(error){
         console.log("Error occurred: ", error)

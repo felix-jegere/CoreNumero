@@ -2,7 +2,6 @@ import express from 'express';
 import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import responseRoutes from './routes/response.route.js';
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
@@ -15,9 +14,6 @@ app.use(express.urlencoded({ extended: true }));
 
 // Serve frontend
 app.use(express.static(path.join(__dirname, '../../frontend')));
-
-// API Routes
-app.use('/api', responseRoutes);
 
 // Serve index.html for all routes (SPA fallback)
 app.get('/', (req, res) => {

@@ -1,10 +1,11 @@
 import { ai } from '../config/ai_model.js';
+import { SYSTEM_PROMPT } from '../config/constants.js';
 
 export const getInsights = async (req, res) => {
     try {
-        const { name, numbers, question } = req.body;
+        const { userName, numbers, question } = req.body;
 
-        if (!name || !numbers) {
+        if (!userName || !numbers) {
             return res.status(400).json({
                 success: false,
                 message: 'Name and numbers are required'
@@ -12,37 +13,21 @@ export const getInsights = async (req, res) => {
         }
 
         // Build the prompt with numerology data
-        const prompt = `
-As a numerology expert and spiritual guide, analyze the following numerology profile:
-
-Name: ${name}
-Life Path Number: ${numbers.lifePath}
-Destiny Number: ${numbers.destiny}
-Soul Urge Number: ${numbers.soulUrge}
-Personality Number: ${numbers.personality}
-
-${question ? `User's Question: ${question}` : ''}
-
-Provide a detailed, insightful, and personalized numerology reading based on these numbers. Include:
-1. What each number means for this person
-2. How these numbers interact and influence their life
-3. Practical guidance and insights
-${question ? '4. Specific answer to their question based on numerology' : ''}
-
-Be warm, encouraging, and provide actionable insights.`;
+        const prompt = `my name is ${userName} and my numerology numbers are ${JSON.stringify(numbers)}. Please provide a detailed numerology insight based on this information.`;
 
         // Call Gemini API for AI insights
         const response = await ai.models.generateContent({
-            model: "gemini-2.0-flash",
+            model: "gemini-3-flash-preview",
             contents: prompt,
             config: {
-                temperature: 0.7,
+                temperature: 0.1,
+                systemInstruction: SYSTEM_PROMPT,
             },
         });
 
         res.status(200).json({
             success: true,
-            name,
+            userName,
             numbers,
             insight: response.text
         });
