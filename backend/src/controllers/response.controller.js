@@ -2,8 +2,9 @@ import { ai } from '../config/ai_model.js';
 import { SYSTEM_PROMPT } from '../config/constants.js';
 
 export const getInsights = async (req, res) => {
+    console.log('Received request for insights with body:', req.body);
     try {
-        const { userName, numbers, question } = req.body;
+        const { userName, numbers } = req.body;
 
         if (!userName || !numbers) {
             return res.status(400).json({
@@ -17,7 +18,7 @@ export const getInsights = async (req, res) => {
 
         // Call Gemini API for AI insights
         const response = await ai.models.generateContent({
-            model: "gemini-3-flash-preview",
+            model: "gemini-2.5-flash",
             contents: prompt,
             config: {
                 temperature: 0.1,

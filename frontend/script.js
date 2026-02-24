@@ -1,4 +1,7 @@
-document.getElementById('numerologyForm').addEventListener('submit', function(e) {
+import markdownIt from 'markdown-it';
+const md = new markdownIt();
+
+document.getElementById('numerologyForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     
     const dob = document.getElementById('userDate').value;
@@ -27,6 +30,32 @@ document.getElementById('numerologyForm').addEventListener('submit', function(e)
     // In a real app, this is where you would call your Gemini backend
     document.getElementById('geminiSummary').innerText = `Syncing with Gemini AI to interpret the vibration of Number ${lifePath}...`;
     
+    // Communication with backend to get AI insights
+    try {
+        const response = await fetch('/api/insights', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                userName: document.getElementById('userName').value || 'Seeker',
+                numbers:{
+                    lifePath: lifePath,
+                },
+            })
+        });
+
+        const data = await response.json();
+        if(data.success) {
+            document.getElementById('geminiSummary').innerHTML = md.render(data.insight);
+        }else{
+            document.getElementById('geminiSummary').innerText = 'The stars are fuzzy right now. Try again?';
+        }
+    } catch (error) {
+        console.error('Connection Error: ', error);
+        document.getElementById('geminiSummary').innerText = 'Unable to establish connection. Please try again later.';
+    }
+
     // Smooth scroll to results
     document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
 });
