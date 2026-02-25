@@ -1,5 +1,10 @@
 import { ai } from '../config/ai_model.js';
 import { SYSTEM_PROMPT } from '../config/constants.js';
+import markdownit from 'markdown-it'
+
+const md = markdownit({
+    html: true,
+});
 
 export const getInsights = async (req, res) => {
     console.log('Received request for insights with body:', req.body);
@@ -26,11 +31,13 @@ export const getInsights = async (req, res) => {
             },
         });
 
+        const htmlInsight = md.render(response.text);
+
         res.status(200).json({
             success: true,
             userName,
             numbers,
-            insight: response.text
+            insight: htmlInsight,
         });
     } catch (error) {
         console.error('Error generating insights:', error);

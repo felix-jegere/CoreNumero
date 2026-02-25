@@ -1,6 +1,3 @@
-import markdownIt from 'markdown-it';
-const md = new markdownIt();
-
 document.getElementById('numerologyForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     
@@ -28,7 +25,7 @@ document.getElementById('numerologyForm').addEventListener('submit', async funct
     document.getElementById('lifePathDigit').innerText = lifePath;
     
     // In a real app, this is where you would call your Gemini backend
-    document.getElementById('geminiSummary').innerText = `Syncing with Gemini AI to interpret the vibration of Number ${lifePath}...`;
+    document.getElementById('geminiSummary').innerText = `Syncing with AI Model to interpret the vibration of Number ${lifePath}...`;
     
     // Communication with backend to get AI insights
     try {
@@ -46,8 +43,9 @@ document.getElementById('numerologyForm').addEventListener('submit', async funct
         });
 
         const data = await response.json();
+        console.log('Received response from backend:', data.success);
         if(data.success) {
-            document.getElementById('geminiSummary').innerHTML = md.render(data.insight);
+            document.getElementById('geminiSummary').innerHTML = data.insight;
         }else{
             document.getElementById('geminiSummary').innerText = 'The stars are fuzzy right now. Try again?';
         }

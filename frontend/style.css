@@ -37,7 +37,7 @@ h1, h2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem 5%;
+    padding: 0.5rem 7%;
     position: fixed;
     width: 100%;
     z-index: 1000;
@@ -69,7 +69,7 @@ h1, h2 {
     display: flex;
     align-items: center;
     padding: 0 10%;
-    background: radial-gradient(circle at 80% 20%, #1a1a2e 0%, #0a0a0c 100%);
+    background: radial-gradient(circle at 80% 20%, #1010df 0%, #0a0a0c 100%);
 }
 
 .hero-content {
@@ -128,13 +128,16 @@ input {
 
 /* Buttons */
 .btn-primary {
-    padding: 1rem 2rem;
+    padding: 1rem;
     background: var(--accent-blue);
     color: #000;
     text-decoration: none;
     font-weight: 600;
     border-radius: 5px;
     margin-right: 1rem;
+    border: none;
+    outline: none;
+    transition: color 0.3s ease;
 }
 
 .btn-submit {
@@ -151,6 +154,19 @@ input {
 .btn-submit:hover {
     background: var(--accent-blue);
     color: #000;
+}
+
+.results-area {
+    margin-top: 2rem;
+    padding: 1rem 5%;
+    background: rgba(255,255,255,0.1);
+    border-radius: 8px;
+    min-height: 100px;
+    text-align: left;
+}
+
+.know{
+    padding: 100px 5%;
 }
 
 /* Features */
@@ -176,9 +192,30 @@ input {
 /* Animations */
 .hidden { display: none; }
 
+.footer-content {
+    text-align: center;
+    padding: 2rem 0;
+    background: rgba(0,0,0,0.2);
+}
+
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 .fade-in { animation: fadeIn 1s ease-out; }
+
+@media (max-width: 768px) {
+    /*.hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-visual {
+        margin-top: 2rem;
+    }
+
+    .nav-links {
+        display: none;
+    }*/
+}
