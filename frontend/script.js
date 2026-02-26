@@ -57,3 +57,18 @@ document.getElementById('numerologyForm').addEventListener('submit', async funct
     // Smooth scroll to results
     document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
 });
+
+// Mobile hamburger toggle
+const hamburger = document.querySelector('.hamburger');
+const navbar = document.querySelector('.navbar');
+const navLinks = document.querySelectorAll('.nav-links a');
+if (hamburger && navbar) {
+    hamburger.addEventListener('click', () => {
+        navbar.classList.toggle('open');
+    });
+
+    // Close menu when a link is clicked
+    navLinks.forEach(link => link.addEventListener('click', () => {
+        navbar.classList.remove('open');
+    }));
+}

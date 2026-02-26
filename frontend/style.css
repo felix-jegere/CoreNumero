@@ -64,8 +64,18 @@ h1, h2 {
     transition: 0.3s;
 }
 
+.hamburger{
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+}
 .hamburger span{
-
+    display: block;
+    width: 24px;
+    height: 3px;
+    background: var(--text-main);
+    border-radius: 2px;
 }
 
 
@@ -212,16 +222,67 @@ input {
 .fade-in { animation: fadeIn 1s ease-out; }
 
 @media (max-width: 768px) {
-    /*.hero {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .hero-visual {
-        margin-top: 2rem;
+    .navbar {
+        padding: 0.5rem 4%;
     }
 
     .nav-links {
         display: none;
-    }*/
+    }
+
+    .hamburger{
+        display: flex;
+    }
+
+    .hero {
+        height: auto;
+        flex-direction: column;
+        text-align: center;
+        padding: 4rem 6% 6rem;
+        gap: 2rem;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .hero-visual { display: none; }
+
+    .calculator-section { padding: 60px 5%; }
+
+    .glass-card { padding: 1.5rem; border-radius: 14px; }
+
+    .features { padding: 60px 6%; gap: 1rem; }
+
+    /* Mobile menu when navbar is toggled open */
+    .navbar.open .nav-links {
+        display: flex;
+        position: absolute;
+        top: 60px;
+        right: 4%;
+        flex-direction: column;
+        background: rgba(10,10,12,0.95);
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        gap: 0.75rem;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+    }
+
+    .navbar.open .nav-links a { display: block; }
 }
+
+@media (max-width: 420px) {
+    h1 { font-size: 1.8rem; }
+    .btn-primary { padding: 0.75rem; font-size: 0.9rem; }
+    .nav-links a { font-size: 0.85rem; }
+    .features { grid-template-columns: 1fr; padding: 40px 4%; }
+}
+ 
