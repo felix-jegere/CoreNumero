@@ -9,10 +9,10 @@ export const ai = new GoogleGenAI({
 
 // Test connection on startup
 async function testConnection() {
-  try {
+  /*try {
     console.log('Testing Gemini API connection...');
     const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
+      model: "gemini-1.5-flash",
       contents: "Say 'CoreNumero is ready!' in one sentence.",
     });
     console.log('✓ Gemini API connected successfully');
@@ -21,7 +21,7 @@ async function testConnection() {
   } catch (error) {
     console.error('✗ Gemini API connection failed:', error.message);
     return false;
-  }
+  }*/
 }
 
 export default testConnection;
