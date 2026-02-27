@@ -9,11 +9,11 @@ dotenv.config({
 const startServer = async ()=>{
     try{
         console.log('\n🔢 Starting CoreNumero Server...');
-        const ok = await testConnection();
+        /*const ok = await testConnection();
         if(!ok){
             console.error('✗ Gemini API connection failed — aborting startup.');
             process.exit(1);
-        }
+        }*/
         app.on('error', (error) => {
             console.error('Server error:', error);
             throw error; // Rethrow the error to be caught by the outer catch block

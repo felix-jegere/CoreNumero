@@ -23,7 +23,7 @@ export const getInsights = async (req, res) => {
 
         // Call Gemini API for AI insights
         const response = await ai.models.generateContent({
-            model: "gemini-2.5-flash",
+            model: "gemini-3.1-pro-preview",
             contents: prompt,
             config: {
                 temperature: 0.1,

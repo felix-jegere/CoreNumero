@@ -63,6 +63,11 @@ h1, h2 {
     transition: 0.3s;
 }
 
+.hamburger span{
+
+}
+
+
 /* Hero Section */
 .hero {
     height: 100vh;
