@@ -185,6 +185,31 @@ input {
     padding: 100px 5%;
 }
 
+/* Know cards */
+.must-know-card { max-width: 1200px; margin: 0 auto; }
+.know-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.25rem;
+}
+.know-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 1.25rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.know-card h4 {
+    margin-bottom: 0.5rem;
+    color: var(--accent-gold);
+}
+.know-card p { opacity: 0.9; }
+.know-card:hover { transform: translateY(-6px); box-shadow: 0 12px 28px rgba(0,0,0,0.6); }
+.master-list { margin-top: 0.5rem; list-style: none; padding-left: 0; }
+.master-list li { margin: 0.35rem 0; }
+
 /* Features */
 .features {
     display: grid;
