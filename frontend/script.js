@@ -29,7 +29,7 @@ document.getElementById('numerologyForm').addEventListener('submit', async funct
     
     // Communication with backend to get AI insights
     try {
-        const response = await fetch('/api/insights', {
+        const response = await fetch('https://core-numero.vercel.app/api/insights', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
