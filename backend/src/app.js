@@ -23,10 +23,5 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(router)
-app.use(express.static(path.join(__dirname, '../../frontend')));
-
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../../frontend/index.html'));
-});
 
 export default app;
