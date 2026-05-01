@@ -10,7 +10,7 @@ const __dirname = path.dirname(__filename);
 
 // Middleware
 app.use(cors({
-  origin: ["https://corenumero.netlify.app", "http://localhost:8000"],
+  origin: "https://corenumero.netlify.app",
   methods: ['GET', 'POST'],
   credentials: true
 }));
