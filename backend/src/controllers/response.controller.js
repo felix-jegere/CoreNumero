@@ -23,15 +23,15 @@ export const getInsights = async (req, res) => {
 
         // Call Gemini API for AI insights
         const response = await ai.models.generateContent({
-            model: "gemini-3-flash-preview",
-            contents: prompt,
+            model: "gemini-1.5-flash",
+            contents: [{ role: 'user', parts: [{ text: prompt }] }],
             config: {
                 temperature: 0.1,
                 systemInstruction: SYSTEM_PROMPT,
             },
         });
 
-        const htmlInsight = md.render(response.text);
+        const htmlInsight = md.render(response.text());
 
         res.status(200).json({
             success: true,
