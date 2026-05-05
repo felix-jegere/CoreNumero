@@ -31,7 +31,7 @@ export const getInsights = async (req, res) => {
             },
         });
 
-        const htmlInsight = md.render(response.text());
+        const htmlInsight = md.render(response.text);
 
         res.status(200).json({
             success: true,

@@ -2,9 +2,7 @@ import dotenv from 'dotenv';
 import testConnection from './config/ai_model.js';
 import app from './app.js';
 
-dotenv.config({
-    path: '.env'
-})
+dotenv.config()
 
 const startServer = async ()=>{
     try{
@@ -27,5 +25,7 @@ const startServer = async ()=>{
         process.exit(1);
     }
 } 
+
+startServer();
 
 export default app;
