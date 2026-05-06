@@ -5,9 +5,9 @@
   "license": "ISC",
   "author": "Jegere Felix",
   "type": "module",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node ./backend/src/index.js",
+    "start": "node ./backend/src/app.js",
     "dev": "nodemon ./backend/src/index.js",
     "serve-frontend": "node ./backend/frontend-server.js",
     "test": "node --test"
