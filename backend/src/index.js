@@ -28,4 +28,6 @@ const startServer = async ()=>{
     }
 } 
 
-export default app;
+export default async handler(req, res){
+	return app(req,res)
+}
